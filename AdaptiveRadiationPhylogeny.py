@@ -10,7 +10,7 @@ KM = 100 #Carrying capacity
 d = 0.05 #Background death rate
 r = 0.25 #Intrinsic growth rate
 sk = 12.5 #Range of resources
-sa = 2 #Species niche width (affects competition coefficient, divergent/convergent evolution)
+sa = 2 #Species niche width
 gamma = 0 #Strategy that maximizes carrying capacity
 
 
@@ -239,26 +239,6 @@ pop = odeint(evoLV, intxv, time_sp,hmax=1)
     
 plt.figure()
 plt.title('Adaptive Radiation')
-# plt.subplot(211)
-# i=0
-# while i<total_num*2:
-#     if i%2==0:
-#         if i<num_slow*2:
-#             plt.plot(time_sp,pop[:,i],c='#1f77b4',label='Slow')
-#         else:
-#             if i==4:
-#                 plt.plot(time_sp[int(fast_spec[0]*10):],pop[int(fast_spec[0]*10):,i],color='#ff7f0e')
-#             elif i==6:
-#                 plt.plot(time_sp[int(fast_spec[1]*10):],pop[int(fast_spec[1]*10):,i],color='#ff7f0e')
-#             elif i==8:
-#                 plt.plot(time_sp[int(fast_spec[2]*10):],pop[int(fast_spec[2]*10):,i],color='#ff7f0e')
-#             else:
-#                 plt.plot(time_sp,pop[:,i],color='#ff7f0e',label='Fast')
-#     i+=1
-    
-# plt.grid(True)
-# plt.ylabel('Pop Size, x')
-# plt.subplot(212)
 j=0
 while j<total_num*2:
     if j%2==1:
