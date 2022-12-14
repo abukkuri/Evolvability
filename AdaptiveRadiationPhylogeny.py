@@ -31,6 +31,7 @@ fchange5 = False
 fchange6 = False
 tryf=[0,0,0,0,0]
 trys=[0,0]
+p=0.1
 
 fast_spec=[]
 slow_spec=[]
@@ -109,10 +110,10 @@ def evoLV(X, t):
         i=0
         j=0
         while i < num_slow:
-            a += (exp(-(n - ss[i]) ** 2 / (2 * sa)))*slow_pops[i]
+            a += (p+(1-p)*(exp(-(n - ss[i]) ** 2 / (2 * sa))))*slow_pops[i]
             i+=1
         while j<num_fast:
-            a += (exp(-(n - fs[j]) ** 2 / (2 * sa)))*fast_pops[j]
+            a += (p+(1-p)*(exp(-(n - fs[j]) ** 2 / (2 * sa))))*fast_pops[j]
             j+=1
         return a
     
