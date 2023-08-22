@@ -84,3 +84,50 @@ plt.plot(pop[:,3],label='k = ' + str(k[1]))
 plt.grid(True)
 plt.ylabel('Indv Strategy, v')
 plt.show()
+
+
+#Plots adaptive landscape
+time_G = 2000 
+n=5
+
+fast = []
+slow = []
+
+def fastG(v):
+    gamma = 0
+    x1 = pop[time_G][0]
+    x2 = pop[time_G][1]
+    u1 = pop[time_G][2]
+    u2 = pop[time_G][3]
+    a1 = p+(1-p)*(math.exp(-(v-u1)**2/(2*sa)))
+    a2 = p+(1-p)*(math.exp(-(v-u2)**2/(2*sa)))
+    K2 = KM * math.exp(-((v - gamma) ** 2) / (2 * sk))#+5
+    Gfunc2 =r[1]/K2 * (K2 - a1*x1 - a2*x2) - d[1]*k[1]
+    return Gfunc2
+
+def slowG(v):
+    gamma = 0
+    x1 = pop[time_G][0]
+    x2 = pop[time_G][1]
+    u1 = pop[time_G][2]
+    u2 = pop[time_G][3]
+    a1 = p+(1-p)*(math.exp(-(v-u1)**2/(2*sa)))
+    a2 = p+(1-p)*(math.exp(-(v-u2)**2/(2*sa)))
+    K1 = KM * math.exp(-((v - gamma) ** 2) / (2 * sk))#+5
+    Gfunc1 = r[0]/K1 * (K1 - a2*x2 - a1*x1) - d[0]*k[0]
+    return Gfunc1
+
+for i in np.arange(-n,n,.1):
+    fast.append(fastG(i))
+    slow.append(slowG(i))
+
+plt.plot(np.arange(-n,n,.1),slow,label='Slow',lw=3)
+plt.plot(np.arange(-n,n,.1),fast,label='Fast',lw=3)
+plt.plot(pop[time_G][2],slowG(pop[time_G][2]),marker='o',color='c',lw=20,markersize=10)
+plt.plot(pop[time_G][3],fastG(pop[time_G][3]),marker='o',color='greenyellow',lw=20,markersize=10)
+plt.title('Adaptive Radiation: Time '+str(time_G))
+plt.xlabel('Evolutionary Strategy: v')
+plt.legend()
+#plt.xlim(-1,.1)
+plt.ylabel('Fitness: G')
+plt.show()
