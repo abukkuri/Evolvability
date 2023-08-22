@@ -6,6 +6,7 @@ extinct_slow = 0
 
 IC = [pop1,pop2,strat1,strat2]
 
+#Code to simulate ODE
 def evoLV(X, t):
     
     if t>4200:
@@ -80,6 +81,7 @@ elif dist == 1600:
 elif dist == 1400:
     txt = 'Frequent'
 
+#Code to plot ODE
 plt.figure()
 plt.subplot(211)
 plt.title('Cyclical Coexistence: Ecological Collapse')
