@@ -22,6 +22,7 @@ B = 0
 
 pop_macro = []
 
+#Code for ODE simulation: one run
 def run_this():
 
     g = np.random.random_sample(time + 1) * 4 - 2
@@ -69,7 +70,7 @@ def run_this():
     pop = odeint(evoLV, intxv, range(time+1))
     pop_macro.append(pop)
 
-num_sims = 2
+num_sims = 100 #number of simulation runs
 for i in range(0,num_sims):
     run_this()
 
@@ -91,6 +92,7 @@ for j in range(0,num_sims):
 
 line_width = .3
 
+#Plot stochastic ODE simulations
 plt.figure()
 plt.subplot(211)
 plt.title('Stochastic Evolutionary Tracking: Close')
