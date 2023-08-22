@@ -6,6 +6,7 @@ extinct_slow = 0
 
 IC = [pop1,pop2,strat1,strat2]
 
+#Code for ODE simulation
 def evoLV(X, t):
 
     gamma = np.sin(t/50)
@@ -64,6 +65,7 @@ elif strat1 == 4:
 elif strat1 == 10:
     txt = 'Far'
 
+#Code to plot ODE simulation
 plt.figure()
 plt.subplot(211)
 plt.title('Sinusoidal Evolutionary Tracking: ' + txt)
