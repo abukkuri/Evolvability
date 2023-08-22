@@ -1,11 +1,12 @@
 strat1 = strat2 = 4 #Initial strategy values: 0.5 for close, 4 for medium, 10 for far
-time = 2000
-sa=2
-extinct_fast = 0
+time = 2000 #Time to run simulation
+sa=2 #Species niche width that controls adaptive radiation
+extinct_fast = 0 #To track extinction times
 extinct_slow = 0
 
 IC = [pop1,pop2,strat1,strat2]
 
+#Code to simulate ODEs
 def evoLV(X, t):
 
     gamma = 0
@@ -64,6 +65,7 @@ elif strat1 == 4:
 elif strat1 == 10:
     txt = 'Far'
 
+#Plotting ODE simulation
 plt.figure()
 plt.subplot(211)
 plt.title('Adaptive Radiation: ' + txt)
@@ -86,7 +88,7 @@ plt.ylabel('Indv Strategy, v')
 plt.show()
 
 
-#Plots adaptive landscape
+#Plottng adaptive landscape for a snapshot in time
 time_G = 2000 
 n=5
 
