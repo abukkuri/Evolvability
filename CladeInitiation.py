@@ -6,6 +6,7 @@ extinct_slow = 0
 
 IC = [pop1,pop2,strat1,strat2]
 
+#Code to simulate ODE
 def evoLV(X, t):
 
     gamma = 0
@@ -64,6 +65,7 @@ elif strat1 == 4:
 elif strat1 == 10:
     txt = 'Far'
 
+#Plotting ODE simulation
 plt.figure()
 plt.subplot(211)
 plt.title('Clade Initiation: ' + txt)
