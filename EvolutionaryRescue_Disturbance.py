@@ -1,3 +1,18 @@
+import numpy as np
+from scipy.integrate import *
+import matplotlib.pyplot as plt
+import math
+from math import exp
+
+pop1 = 10
+pop2 = 10
+
+KM = 100
+d = [0.05, 0.05]
+r = [0.25, 0.25]
+k = [.2, .5]
+B = 0
+sk = 12.5
 strat1 = strat2 = 4
 time = 5000
 sa=100
